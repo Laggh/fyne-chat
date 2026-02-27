@@ -27,6 +27,18 @@
                 "clear": true
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Run API Server",
+            "type": "shell",
+            "command": "vercel dev",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
         }
     ]
 }
