@@ -10,11 +10,11 @@ import (
 )
 
 var ctx = context.Background()
+var opt, _ = redis.ParseURL(os.Getenv("REDIS_URL"))
+var client *redis.Client
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	opt, _ := redis.ParseURL(os.Getenv("REDIS_URL"))
-	client := redis.NewClient(opt)
-
+	client = redis.NewClient(opt)
 	val := client.Get(ctx, "foo").Val()
-	fmt.Fprintf(w, "<h1>Hello!</h1><p>%s</p>", val)
+	fmt.Fprintf(w, "<h1>Hello</h1><p>%s</p>", val)
 }
